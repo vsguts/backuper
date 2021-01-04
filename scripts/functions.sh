@@ -9,7 +9,7 @@ function rootDir()
 
 function getCurrentDateTime()
 {
-    echo $(date +"%Y-%m-%d_%H-%M-%S")
+    echo $(date +"%Y%m%d_%H%M%S")
 }
 
 ##

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+DIR=~/myproject-path
+BACKUP_DIR=/tmp/backup
+ARCHIVE="myproject_${DATE}.tgz"
+
+echo " Create backup dir: ${BACKUP_DIR}"
+mkdir -p ${BACKUP_DIR}
+
+echo " Go to dir: ${DIR}"
+cd ${DIR}
+
+#echo " Compose: Stop"
+#docker-compose stop
+
+ARCHIVE_DIR=${BACKUP_DIR}/${ARCHIVE}
+echo " $(archive . ${ARCHIVE_DIR})"
+$(archive . ${ARCHIVE_DIR})
+
+#echo " Compose: Start"
+#docker-compose start
