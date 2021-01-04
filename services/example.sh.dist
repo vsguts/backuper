@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+DIR=../some-dir-to-backup
+
+echo " Go to dir: ${DIR}"
+cd ${DIR}
+
+#docker-compose stop
+
+echo " $(archiveToResults . ${DATE}.tgz)"
+$(archiveToResults . ${DATE}.tgz)
+
+#docker-compose start
