@@ -7,7 +7,9 @@ cd ${DIR}
 
 #docker-compose stop
 
-echo " $(archiveToResults . ${DATE}.tgz)"
-$(archiveToResults . ${DATE}.tgz)
+ARCHIVE=${DATE}.tgz
+
+echo " $(archiveToResults . ${ARCHIVE})"
+$(archiveToResults . ${ARCHIVE})
 
 #docker-compose start
