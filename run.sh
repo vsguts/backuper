@@ -5,11 +5,15 @@ source scripts/functions.sh
 ROOT=$(rootDir)
 DATE=$(getCurrentDateTime)
 
-for file in services/*.sh
-do
-    echo "Service: ${file}"
+if [[ "$1" != "" ]]
+then
+    SERVICE=services/${1}.sh
+    runService ${SERVICE}
+else
+    for file in services/*.sh
+    do
+        runService ${file}
+    done
+fi
 
-    source "$file"
-
-    cd ${ROOT}
-done
+echo 'ALL DONE'
