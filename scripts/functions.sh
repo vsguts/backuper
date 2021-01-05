@@ -31,7 +31,7 @@ function runService()
 ##
 function archive()
 {
-    echo "tar czf $2 $1"
+    echo "tar czf $1 $2"
 }
 
 ##
@@ -39,7 +39,7 @@ function archive()
 ##
 function archiveToResults()
 {
-    echo $(archive $1 ${ROOT}/results/$2)
+    echo $(archive ${ROOT}/results/$1 $2)
 }
 
 function isComposeRunning()

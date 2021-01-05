@@ -9,8 +9,8 @@ cd ${DIR}
 #echo " Compose: Stop"
 #docker-compose stop
 
-echo " $(archiveToResults . ${ARCHIVE})"
-$(archiveToResults . ${ARCHIVE})
+echo " $(archiveToResults ${ARCHIVE} .)"
+$(archiveToResults ${ARCHIVE} .)
 
 #echo " Compose: Start"
 #docker-compose start

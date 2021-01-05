@@ -18,8 +18,8 @@ if [[ ! -z $(isComposeRunning) ]]; then
 fi
 
 ARCHIVE_DIR=${BACKUP_DIR}/${ARCHIVE}
-echo " $(archive . ${ARCHIVE_DIR})"
-$(archive . ${ARCHIVE_DIR})
+echo " $(archive ${ARCHIVE_DIR} .)"
+$(archive ${ARCHIVE_DIR} .)
 
 if [[ $COMPOSE_WAS_RUNNING == 1 ]]; then
     echo " Compose: Start"
