@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 DIR=~/myproject-path
-BACKUP_DIR=/tmp/backup
-ARCHIVE="myproject_${DATE}.tgz"
+BACKUP_DIR=${ROOT}/results
+ARCHIVE="myproject.${DATE}.tgz"
+
+##################
+#   Processing   #
+##################
 
 echo " Create backup dir: ${BACKUP_DIR}"
 mkdir -p ${BACKUP_DIR}
@@ -18,8 +22,8 @@ if [[ ! -z $(isComposeRunning) ]]; then
 fi
 
 ARCHIVE_DIR=${BACKUP_DIR}/${ARCHIVE}
-echo " $(archive ${ARCHIVE_DIR} .)"
-$(archive ${ARCHIVE_DIR} .)
+echo " tar czf ${ARCHIVE_DIR} ."
+tar czf ${ARCHIVE_DIR} .
 
 if [[ $COMPOSE_WAS_RUNNING == 1 ]]; then
     echo " Compose: Start"
