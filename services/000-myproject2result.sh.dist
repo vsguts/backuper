@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+DIR=~/myproject-path
+ARCHIVE="myproject/myproject.${DATE}.tgz"
+
+##################
+#   Processing   #
+##################
+
+echo " Go to dir: ${DIR}"
+cd ${DIR}
+
+COMPOSE_WAS_RUNNING=0
+if [[ ! -z $(isComposeRunning) ]]; then
+    COMPOSE_WAS_RUNNING=1
+    echo " Compose: Stop"
+    docker-compose stop
+fi
+
+echo $(archiveToResults ${ARCHIVE} .)
+
+if [[ $COMPOSE_WAS_RUNNING == 1 ]]; then
+    echo " Compose: Start"
+    docker-compose start
+fi

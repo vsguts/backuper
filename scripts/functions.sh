@@ -27,15 +27,17 @@ function runService()
 }
 
 ##
-## archive From To
+## archive To From
 ##
 function archive()
 {
     echo "tar czf $1 $2"
+    mkdir -p $(dirname $1)
+    tar czf $1 $2
 }
 
 ##
-## archiveToResults From To
+## archiveToResults ToName From
 ##
 function archiveToResults()
 {
