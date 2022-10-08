@@ -12,6 +12,16 @@ function getCurrentDateTime()
     echo $(date +"%Y%m%d_%H%M%S")
 }
 
+function getCurrentDate()
+{
+    echo $(date +"%Y-%m-%d")
+}
+
+function getCurrentTime()
+{
+    echo $(date +"%H-%M-%S")
+}
+
 function runService()
 {
     echo "Running started: ${1}"
